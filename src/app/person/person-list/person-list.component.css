@@ -1,0 +1,33 @@
+mat-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+td {
+  overflow: hidden;
+  width: 300px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+table {
+  width: 100%;
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell
+{
+
+  padding-right: 8px;
+}
+td {
+
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+mat-header-cell {
+
+  font-weight: 700;
+}

@@ -1,0 +1,80 @@
+<h1 mat-dialog-title><strong>{{action}}</strong></h1>
+<div mat-dialog-content>
+
+  <div *ngIf="action != 'Delete' && action!='Detail'">
+    <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+      <mat-form-field appearance="outline" [ngStyle]="{'margin-right': '4px'}">
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="firstName" [(ngModel)]="localData.firstName">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-error>Required first name</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="last name" [(ngModel)]="localData.lastName">
+        <mat-error>Required last name</mat-error>
+
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+
+
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+      <mat-form-field appearance="outline" [ngStyle]="{'margin-right': '4px'}">
+        <mat-label>Gender</mat-label>
+        <input matInput placeholder="gender" [(ngModel)]="localData.gender">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="email" [(ngModel)]="localData.email">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+
+
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start center" fxFlex="100">
+      <mat-form-field appearance="outline" [ngStyle]="{'margin-right': '4px'}">
+        <mat-label>Address</mat-label>
+        <input matInput placeholder="address" [(ngModel)]="localData.address">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-error>Required address</mat-error>
+
+      </mat-form-field>
+    </div>
+
+
+  </div>
+
+
+  <div *ngIf="action === 'Delete'">
+    Sure to delete <b>{{localData.firstName}} - {{localData.lastName}}</b>?
+  </div>
+
+  <div *ngIf="action === 'Detail'">
+    <mat-list>
+      <mat-list-item><b>FirstName: </b> {{localData.firstName}} </mat-list-item>
+      <mat-list-item><b>LastName: </b> {{localData.lastName}} </mat-list-item>
+      <mat-list-item><b>Gender: </b>{{localData.gender}} </mat-list-item>
+      <mat-list-item><b>Email: </b>{{localData.email}} </mat-list-item>
+      <mat-list-item><b>Address: </b>{{localData.address}} </mat-list-item>
+
+
+    </mat-list>
+
+
+  </div>
+</div>
+
+
+<div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto" fxflex="100">
+
+  <div mat-dialog-actions>
+    <button *ngIf="action !=='Detail'" mat-button (click)="doAction()" mat-button
+            (click)="doAction()">{{action}}</button>
+    <button *ngIf="action ==='Detail'" mat-button (click)="doAction()">OK</button>
+
+
+    <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+  </div>
+</div>
